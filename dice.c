@@ -44,20 +44,23 @@
 
 void instructions ( void );
 int get_int ( char * prompt );
+void roll_generator (int rolls);
 void rolling_of_dice (int rolls);
 
 int array_of_rolls [7];
 
 int main(int argc, const char * argv[])
 {
-//  instructions();
+  instructions();
     
     char prompt [] = "How many dice rolls (up to 99)? ";
     
 //  printf ( "\n%d", get_int ( prompt ) );
     int rolls = get_int ( prompt );
-    
+  
     rolling_of_dice ( rolls );
+    
+//  roll_generator ( rolls );
 
     return 0;
 }
@@ -67,7 +70,7 @@ void instructions ( void )
     printf("This program simulates the rolling of pairs of dice. \n"
            "You enter the number of times you want the computer \n"
            "to 'roll' the dice. Watch out, very large numbers \n"
-           "take a long time. In particular, number over 5000. \n");
+           "take a long time. \n");
 }
 
 int get_int ( char * prompt )
@@ -107,7 +110,7 @@ int get_int ( char * prompt )
     return return_value;
 }
 
-void rolling_of_dice (int rolls)
+void roll_generator (int rolls)
 {
     int number_rolled [99];
     
@@ -124,6 +127,38 @@ void rolling_of_dice (int rolls)
         printf("%d - %d \n", i, array_of_rolls[i] );
     }
 }
+
+void rolling_of_dice (int rolls)
+{
+    int die_one = 0;
+    int die_two = 0;
+    
+    for (int i = 0; i < rolls; i++)
+    {
+        die_one = ( rand() % 6 ) + 1;
+        die_two = ( rand() % 6 ) + 1;
+        printf ( "%d, %d\n", die_one, die_two );
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
